@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <NavScroll />
       <div>
-        <Image style={{height: "50vh", width: "100%"}} src={Img} fluid />
+        <Image src={Img} fluid />
       </div>
       <Doctors doctors={doctorData} />
     </>

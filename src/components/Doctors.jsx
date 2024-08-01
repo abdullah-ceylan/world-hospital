@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Col, Row } from 'react-bootstrap';
 import Container from "react-bootstrap/Container";
+import { AddModal } from './AddModal';
 
 
 const Doctors = ({doctors}) => {
+  const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+
+const handleClick = () => {
+  // handleShow()
+  setShow(true)
+}
+
   return (
     <Container className="p-4">
       <h3
@@ -19,12 +30,15 @@ const Doctors = ({doctors}) => {
               src={dr.img}
               alt={dr.name}
               className="img-thumbnail doctor-img"
+              onClick={handleClick}
             />
             <h5>{dr.name}</h5>
-            <h4>{dr.dep}</h4>
+            <h6>{dr.dep}</h6>
           </Col>
         ))}
       </Row>
+      {/* <AddModal show={show} handleClose={handleClose} /> */}
+      <AddModal show={show} handleClose={() => setShow(false)} />
     </Container>
   );
 };
