@@ -6,14 +6,16 @@ import { AddModal } from './AddModal';
 
 const Doctors = ({doctors}) => {
   const [show, setShow] = useState(false);
+  const [drName, setDrName] = useState("");
 
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
 
-const handleClick = () => {
+const handleClick = (docName) => {
   // handleShow()
-  setShow(true)
-}
+  setShow(true);
+  setDrName(docName);
+};
 
   return (
     <Container className="p-4">
@@ -30,7 +32,7 @@ const handleClick = () => {
               src={dr.img}
               alt={dr.name}
               className="img-thumbnail doctor-img"
-              onClick={handleClick}
+              onClick={() => handleClick(dr.name)}
             />
             <h5>{dr.name}</h5>
             <h6>{dr.dep}</h6>
@@ -38,7 +40,7 @@ const handleClick = () => {
         ))}
       </Row>
       {/* <AddModal show={show} handleClose={handleClose} /> */}
-      <AddModal show={show} handleClose={() => setShow(false)} />
+      <AddModal show={show} handleClose={() => setShow(false)} drName={drName} />
     </Container>
   );
 };
