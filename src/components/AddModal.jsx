@@ -3,14 +3,32 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
 
-export function AddModal({ show, handleClose, drName }) {
-    const [patientName, setPatientName] = useState("")
-    const [date, setDate] = useState("")
+export function AddModal({
+  show,
+  handleClose,
+  drName,
+  appointments,
+  setAppointments,
+}) {
+  const [patientName, setPatientName] = useState("");
+  const [date, setDate] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        handleClose()
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setAppointments([
+      ...appointments,
+      {
+        id: appointments.length + 1,
+        patient: patientName,
+        day: date,
+        consulted: false,
+        doctor: drName,
+      },
+    ]);
+    handleClose();
+  };
+
+  console.log(appointments)
 
   return (
     <>
@@ -19,7 +37,7 @@ export function AddModal({ show, handleClose, drName }) {
           <Modal.Title>Appoinment for {drName}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={handleSubmit} >
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Patient Name</Form.Label>
               <Form.Control

@@ -4,18 +4,19 @@ import Container from "react-bootstrap/Container";
 import { AddModal } from './AddModal';
 
 
-const Doctors = ({doctors}) => {
+const Doctors = ({ doctors, appointments, setAppointments }) => {
   const [show, setShow] = useState(false);
   const [drName, setDrName] = useState("");
 
   // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(true);
 
-const handleClick = (docName) => {
-  // handleShow()
-  setShow(true);
-  setDrName(docName);
-};
+  const handleClick = (docName) => {
+    // handleShow()
+    setShow(true);
+    setDrName(docName);
+  };
+
 
   return (
     <Container className="p-4">
@@ -40,7 +41,13 @@ const handleClick = (docName) => {
         ))}
       </Row>
       {/* <AddModal show={show} handleClose={handleClose} /> */}
-      <AddModal show={show} handleClose={() => setShow(false)} drName={drName} />
+      <AddModal
+        show={show}
+        handleClose={() => setShow(false)}
+        drName={drName}
+        appointments={appointments}
+        setAppointments={setAppointments}
+      />
     </Container>
   );
 };
