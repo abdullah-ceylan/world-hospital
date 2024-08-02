@@ -21,7 +21,7 @@ const Doctors = ({ doctors, appointments, setAppointments }) => {
   return (
     <Container className="p-4">
       <h3
-        className="display-4 mb-4 p-3 text-center"
+        className="display-4 mb-4 p-2 text-center"
         style={{ color: "white", background: "#0D6EFD" }}
       >
         Doctors
