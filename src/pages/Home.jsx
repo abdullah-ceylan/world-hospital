@@ -6,6 +6,7 @@ import {doctorData} from "../helpers/data"
 import Doctors from "../components/Doctors"
 import AppointmentList from "../components/AppointmentList";
 import {appointmentData} from "../helpers/data"
+import Footer from "../components/Footer";
 
 const Home = () => {
   // const [doctors, setDoctors] = useState(doctorData)
@@ -41,6 +42,7 @@ const Home = () => {
         appointments={appointments}
         setAppointments={setAppointments}
       />
+      <Footer/>
     </>
   );
 };
