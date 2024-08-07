@@ -8,7 +8,17 @@ const NavScroll = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <NavLink to="/contact">Contact</NavLink>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          style={({ isActive }) => ({
+            color: isActive && "red",
+          })}
+        >
+          Contact
+        </NavLink>
       </li>
     </ul>
   );

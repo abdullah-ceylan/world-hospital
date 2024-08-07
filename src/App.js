@@ -1,22 +1,24 @@
 import "./App.css";
-import Contact from "./components/Contact";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import NavScroll from "./components/NavScroll";
-import NotFound from "./components/NotFound";
+import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import About from "./pages/About";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <NavScroll />
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/contact" element={<Contact/>} />
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
-    </BrowserRouter>
+      <Footer />
+    </>
   );
 }
 
