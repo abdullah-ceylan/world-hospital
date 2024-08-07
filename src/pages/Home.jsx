@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import Image from "react-bootstrap/Image";
 import Img from "../helpers/Hospital.jpg";
-import NavScroll from "../components/NavScroll";
-import {doctorData} from "../helpers/data"
-import Doctors from "../components/Doctors"
+import { doctorData } from "../helpers/data";
+import Doctors from "../components/Doctors";
 import AppointmentList from "../components/AppointmentList";
-import {appointmentData} from "../helpers/data"
-import Footer from "../components/Footer";
+import { appointmentData } from "../helpers/data";
 
 const Home = () => {
   // const [doctors, setDoctors] = useState(doctorData)
@@ -29,7 +27,6 @@ const Home = () => {
 
   return (
     <>
-      <NavScroll />
       <div>
         <Image src={Img} fluid />
       </div>
@@ -42,7 +39,6 @@ const Home = () => {
         appointments={appointments}
         setAppointments={setAppointments}
       />
-      <Footer/>
     </>
   );
 };

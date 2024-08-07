@@ -1,13 +1,22 @@
-import './App.css';
-import Home from './pages/Home';
-
-
+import "./App.css";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import NavScroll from "./components/NavScroll";
+import NotFound from "./components/NotFound";
+import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <BrowserRouter>
+      <NavScroll />
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="*" element={<NotFound/>} />
+      </Routes>
+      <Footer/>
+    </BrowserRouter>
   );
 }
 
